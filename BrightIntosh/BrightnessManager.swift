@@ -98,7 +98,7 @@ func getBuiltInScreen() -> NSScreen? {
     for screen in NSScreen.screens {
         let screenNumber = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")]
         let displayId: CGDirectDisplayID = screenNumber as! CGDirectDisplayID
-        if (CGDisplayIsBuiltin(displayId) != 0) {
+        if (CGDisplayIsBuiltin(displayId) != 0 || screen.localizedName == "Pro Display XDR") {
             return screen
         }
     }
